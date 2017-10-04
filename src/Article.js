@@ -5,7 +5,7 @@ export default class Article extends Component {
     super(props);
 
     this.state = {
-      isOpen: false,
+      isOpen: true,
     };
 
     this.toggleOpen = this.toggleOpen.bind(this);
@@ -18,16 +18,19 @@ export default class Article extends Component {
     });
   }
 
+  getBody() {
+    const { article } = this.props;
+    return <section>{ this.state.isOpen ? article.text : null }</section>;
+  }
+
   render() {
     const { article } = this.props;
-
-    console.log(this.state);
 
     return (
       <div>
         <h3>{ article.title }</h3>
-        <button onClick = { this.toggleOpen }>open</button>
-        <section>{ article.text }</section>
+        <button onClick = { this.toggleOpen }>{ this.state.isOpen ? 'close' : 'open' }</button>
+        <section>{ this.getBody() }</section>
       </div>
     );
   }
