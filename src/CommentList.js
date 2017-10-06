@@ -18,13 +18,17 @@ export default class CommentList extends Component {
     }
 
     const { comments } = this.props;
-    const commentsElements = comments ? comments.map((comment) => {
+
+    if (!comments.length) {
+      return (<p>'no comments'</p>);
+    }
+    const commentsElements = comments.map((comment) => {
       return (
         <li key = { comment.id }>
           <Comment comment = { comment } />
         </li>
       );
-    }) : null;
+    });
 
     return (
       <ul>
@@ -42,9 +46,13 @@ export default class CommentList extends Component {
   render() {
     return (
       <div>
-        <button onClick = { this.toggleOpen }>{ this.state.isOpen ? 'hidden commets' : 'view comments' }</button>
+        <button onClick = { this.toggleOpen }>{ this.state.isOpen ? 'hide comments' : 'show comments' }</button>
         { this.getCommentsElements() }
       </div>
     );
   }
 }
+
+CommentList.defaultProps = {
+  comments: [],
+};
