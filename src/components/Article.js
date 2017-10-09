@@ -4,7 +4,7 @@ import toggleOpen from '../decorators/toggleOpen';
 import CommentList from './CommentList';
 
 class Article extends Component {
-  propTypes = {
+  static propTypes = {
     article: PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
