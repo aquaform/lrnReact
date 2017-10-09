@@ -4,9 +4,9 @@ import toggleOpen from '../decorators/toggleOpen';
 
 class CommentList extends Component {
 
-  // static defaultProps = {
-  //   comments: [],
-  // }
+  static defaultProps = {
+    comments: [],
+  }
 
   getCommentsElements() {
 
@@ -43,9 +43,5 @@ class CommentList extends Component {
     );
   }
 }
-
-CommentList.defaultProps = {
-  comments: [],
-};
 
 export default toggleOpen(CommentList);

@@ -4,6 +4,13 @@ import toggleOpen from '../decorators/toggleOpen';
 import CommentList from './CommentList';
 
 class Article extends Component {
+  propTypes = {
+    article: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      text: PropTypes.string,
+    }).isRequired,
+  };
 
   getBody() {
     const { article, isOpen } = this.props;
@@ -33,12 +40,6 @@ class Article extends Component {
   }
 }
 
-Article.propTypes = {
-  article: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string,
-  }).isRequired,
-};
+
 
 export default toggleOpen(Article);
