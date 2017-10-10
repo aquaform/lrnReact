@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import toggleOpen from '../decorators/toggleOpen';
 import CommentList from './CommentList';
 
 class Article extends Component {
@@ -10,6 +9,8 @@ class Article extends Component {
       title: PropTypes.string.isRequired,
       text: PropTypes.string,
     }).isRequired,
+    toggleOpen: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
   };
 
   getBody() {
